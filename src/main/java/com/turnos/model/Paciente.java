@@ -24,6 +24,11 @@ public class Paciente {
     public Paciente() {
     }
 
+    public Paciente(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
     public Paciente(String nombre, String apellido, String domicilio, Integer dni, LocalDate fechaDeAlta) {
         this.nombre = nombre;
         this.apellido = apellido;

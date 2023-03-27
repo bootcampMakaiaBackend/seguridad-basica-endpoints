@@ -40,8 +40,14 @@ public class TurnoService {
             turnoRepository.save(turno);
             return turno;
          }
-        return null;
+        return new Turno();
+    }
 
+    public Integer sumar(Integer numero1, Integer numero2){
+        if(numero1 <= 0 || numero2 <= 0){
+            return 0;
+        }
+        return numero1+numero2;
     }
 
 }
