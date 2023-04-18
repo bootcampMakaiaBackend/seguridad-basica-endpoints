@@ -4,6 +4,7 @@ import com.turnos.model.Odontologo;
 import com.turnos.service.OdontologoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class OdontologoController {
         this.odontologoService = odontologoService;
     }
 
+    @PreAuthorize("hasRole('READ')")
     @GetMapping("/odontologos")
     public List<Odontologo> listar(){
         return this.odontologoService.listar();
@@ -26,6 +28,7 @@ public class OdontologoController {
         this.odontologoService.agregar(odontologo);
     }
 
+    @PreAuthorize("hasRole('WRITE')")
     @DeleteMapping("/odontologo/{matricula}")
     public void eliminar(@PathVariable("matricula") Integer matricula) {
         try{
