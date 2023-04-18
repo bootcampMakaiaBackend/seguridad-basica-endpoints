@@ -29,8 +29,10 @@ public class BasicAuthConfiguration {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http,
                                     AuthenticationManager authManager) throws Exception {
-        return http.csrf().disable()
+        return http
+                .csrf().disable()
                 .authorizeHttpRequests()
+                .antMatchers("/public").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

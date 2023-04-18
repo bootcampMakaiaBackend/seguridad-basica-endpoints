@@ -23,6 +23,7 @@ public class OdontologoController {
         return this.odontologoService.listar();
     }
 
+    @PreAuthorize("hasRole('WRITE')")
     @PostMapping("/odontologo")
     public void agregar(@RequestBody Odontologo odontologo){
         this.odontologoService.agregar(odontologo);
